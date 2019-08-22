@@ -1,0 +1,195 @@
+## Spring Boot   // IS ONE OF THE MOST POPULAR FRAMEWORKS TO DEVELOP MICRO SERVICES
+
+### Goals
+- Enable building production ready applications quickly
+- Provide common non-functional features 
+  - embedded servers
+  - metrics
+  - health checks
+  - externalized configuration
+
+### What Spring Boot is NOT!
+- ZERO code generation
+- Neither an application server nor a web server
+
+### Features
+- Quick Starter Projects with Auto Configuration
+   - Web
+   - JPA
+- Embedded Servers - Tomcat, Jetty or Undertow // que ya se incluyen en el war
+- Production-ready features
+   - metrics and health checks 
+   - externalized configuration
+ 
+ --------------------------------------------------------------------------------------------------------
+ PARA CREAR UN PROYECTO SPRING BOOT
+ 
+ https://start.spring.io/
+ 
+ se bajara un .zip se descomprime
+ 
+ se importa un proyecto en eclipse de tipo maven existing project
+ 
+ luego se selecciona la carpeta donde se descomprimio nuestro archivo y esta listo para usarse
+ 
+ --------------------------------------------------------------------------------------------------------
+ 
+ Para crear un BEAN
+ 
+  - Una nueva Clase
+	* Atributos
+	* Constructor
+	* Getters and Setters
+	* toString
+	
+	
+esta es la base
+
+----------------------------------------------------------------------------------------------------------
+ 
+ Para Crear un REST controler
+ 
+  
+ 
+ @RestController
+public class BooksController {
+	@GetMapping("/books")
+	public List<Book> getAllBooks()
+	{
+		return Arrays.asList(new Book(1l,"Mastering Spring 5.0","by no se quien"));
+	}
+}
+ 
+ ----------------------------------------------------------------------------------------------------------
+ PARA CONSUMIR EL SERVICIO EN CUALQUIER BROWSER   CREO QUE SE INICIALIZA UN TOMCAT SERVER Y DE AHI USA EL PUERTO 8080 PARA USAR LA URL
+ 
+ /springboot-in-10-steps  // PROYECTO EN LA UNIDAD C: de mi lap
+ 
+ http://localhost:8080/books
+ 
+ THIS IS A REST service 
+ JSON response
+ [{"id":1,"name":"Mastering Spring 5.0","author":"by no se quien"}]
+ 
+ AutoConfiguration es un key knowledge en spring boot fundamental , makes it easy to use
+ 
+ jackson para handling JSON // explicacion
+
+-----------------------------------------------------------------------------------------------------------
+	
+CREO QUE DE ESTO SE TRATA MAVEN
+
+archivo POM.XML
+
+define las dependencias del proyecto , 
+
+ejemplo
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		
+Descarga los .jar que necesitamos y los pone en MAVEN DEPENDENCIES
+
+EJEMPLO 
+
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-data-cassandra</artifactId>
+        <version>2.2.0.BUILD-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+	  
+	  
+	 descarga el .jar "spring-boot-starter-we-2.20.BUILD-SNAPSHOT.jar"   en la carpeta de dependencias del proyecto "Maven Dependencies"
+	 
+Cuando agregue esta dependencia en el POM inmediatamante se descargo
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		// ver cuantas veces se llama un servicio , cuantas veces falla etc etc
+		// ver picture en el folder de este archivo
+
+parece que asi es como funciona 		
+	 
+	 			<artifactId>spring-boot-devtools</artifactId>  // CON ESTO EL SERVER ACTUALIZA EN AUTOMATICO LOS CAMBIOS
+				
+				<artifactId>spring-data-rest-hal-browser</artifactId>  // PARA TESTEO , MUESTRA EN EL BROWSER HERRAMIENTAS DEL PROYECTO ES MUY PESADO PARA PROD
+				
+				<artifactId>spring-boot-devtools</artifactId>	// CON ESTE PLUGIN CUANDO SE HACE UN CAMBIO EN LOS BEANS SE REFLEJAN INMEDIATAMENTE SIN REINICIAR TODO EL SERVER
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
