@@ -123,49 +123,142 @@ parece que asi es como funciona
 				<artifactId>spring-boot-devtools</artifactId>	// CON ESTE PLUGIN CUANDO SE HACE UN CAMBIO EN LOS BEANS SE REFLEJAN INMEDIATAMENTE SIN REINICIAR TODO EL SERVER
 	 
 	 
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+SOAP
+
+para los REQUEST XML
+
+el attibuto xmlns = el name space es el que hace unico el mensaje de ese soap
+
+
+EJEMPLO  RESQUEST Y RESPONSE 
+
+// REQEUST
+<?xml version="1.0" encoding="UTF-8"?>
+<GetCourseDetailsRequest xmlns = "http://in28minutes.com/courses">
+		<id>123</id> <!-- numbers -->
+</GetCourseDetailsRequest>
+
+//RESPONSE
+<?xml version="1.0" encoding="UTF-8"?>
+<GetCourseDetailsRequest xmlns = "http://in28minutes.com/courses">
+	<CourseDetails>
+		<id>123</id>
+		<name>Spring in28minutes</name>
+		<description>You would learn the basics of Spring Framework</description>
+	</CourseDetails>
+</GetCourseDetailsRequest>
+
+---------------------------------------------------	 
+XSD --- XML SCHEMA DEFINITION for response
+---------------------------------------------------
+
+en eclipse
+
+new -> others -> xml -> xml schema 
+y se guarda el nombre del schema relacionado con lo que dara forma el nombre del servicio ( validar esto )
+
+// EJEMPLO XSD
+
+// AQUI SE RESTRINGE EL CAMPI <id> A SOLO UTILIZAR NUMEROS 
+
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://in28minutes.com/courses" 
+xmlns:tns="http://in28minutes.com/courses" elementFormDefault="qualified">
+	<element name = " GetCourseDetailsRequest">
+		<complexType>
+			<sequence>
+			<element name = "id" type = "integer"></element>
+			</sequence>
+		</complexType>
+	</element>
+</schema>
+
+---------------------------------------------------
+
+PARA QUE RECONOZCA EL XSD NUESTRO ARCHIVO RESPONSE O REQUEST
+
+<?xml version="1.0" encoding="UTF-8"?>
+<GetCourseDetailsRequest xmlns = "http://in28minutes.com/courses" 
+xsi:schemaLocation="http://in28minutes.com/courses course-details.xsd" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<id>123</id> <!-- numbers -->  // SI PONES LETRAS TE MARCA UN ERROR
+</GetCourseDetailsRequest>
+
+
 	 
 	 
 	 
 	 
 	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
+PARA QUE RECONOZCA NUESTRA PROPIA DEFINICION
 
 
 
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://in28minutes.com/courses" 
+xmlns:tns="http://in28minutes.com/courses" elementFormDefault="qualified">
 
+		<!-- Primera Definicion -->
+	<element name = " GetCourseDetailsRequest">
+		<complexType>
+			<sequence>
+				<element name = "id" type = "integer"></element>
+			</sequence>
+		</complexType>
+	</element>		
+		
+		<!-- Segunda Definicion -->
+	<element name = " GetCourseDetailsResponse">
+		<complexType>
+			<sequence>
+				<element name = "CourseDetails" type = "tns:CourseDetails"></element> // AQUI SE DEFINE CON tns:
+			</sequence>
+		</complexType>
+	</element>	
+	
+	<!-- Usando nuestro propio descripsion -->
+	<complexType name = "CourseDetails">    // AQUI LE DECIMOS COMO SE VA A RESTRINGIR
+	
+		<sequence>
+		
+			<element name = "id" type= "integer"/>
+			<element name = "name" type= "string"/>  	     // AQUI SE DEFINEN TODOS LOS FIELDS QUE QUERAMOS
+			<element name = "description" type= "string"/>
+		
+		</sequence>
+	
+	</complexType>
 
+</schema>	 
+	 
+	 
+	 
+-----------------------------------------------------------------
 
+EJEMPLO DE RESPONSE USANDO UN XSD
 
+<?xml version="1.0" encoding="UTF-8"?>
+<GetCourseDetailsResponse xmlns = "http://in28minutes.com/courses" 
+xsi:schemaLocation="http://in28minutes.com/courses course-details.xsd" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<CourseDetails>
+		<id>123</id>
+			<name>Spring in28minutes</name>
+		<description>You would learn the basics of Spring Framework</description>
+	</CourseDetails>
+</GetCourseDetailsResponse>
 
+ HAY UN CURSO COMPLETO DE XSD  EN INTERNET PARA MAYOR INFORMACION
+http://edutechwiki.unige.ch/en/XML_Schema_tutorial_-_Basics
 
+SE LE PUNE ON XS: PARA SABER QUE ES UN X CHEMA DEFINITION   
 
-
-
-
-
-
-
-
-
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
