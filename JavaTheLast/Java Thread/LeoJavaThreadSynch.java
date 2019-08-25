@@ -133,7 +133,7 @@ class ThreadDemo extends Thread {
    }
    
    public void run() {
-      synchronized(PD) {
+      synchronized(PD) {		// ESTE METODO HACE LA MAGIA
          PD.printCount();
       }
       System.out.println("Thread " +  threadName + " exiting.");

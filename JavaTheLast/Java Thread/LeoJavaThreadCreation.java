@@ -26,6 +26,7 @@ public class MyThread extends Thread {
      MyThread obj = new MyThread();
      obj.start();
 }
+}
 -------------------------------------------------------------------------------------------------------------------
 2) By Implementing Runnable interface
  - The class should implement the Runnable interface

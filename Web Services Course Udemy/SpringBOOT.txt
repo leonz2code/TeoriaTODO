@@ -260,9 +260,15 @@ SE LE PUNE ON XS: PARA SABER QUE ES UN X CHEMA DEFINITION
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 
+Java API for XML Binding (JAXB)
 
+the plugin will serch in because we create XSD file in there
 
+src/main/java
 
+http://www.mojohaus.org/jaxb2-maven-plugin/Documentation/v2.2/example_xjc_basic.html
+
+aqui hay ejemplos  de jaxb2
 
 
 
