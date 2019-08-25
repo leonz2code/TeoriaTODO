@@ -32,6 +32,13 @@ Hashtable<String, Integer> balance = new Hashtable<String, Integer>();
 // } 
 //
 
+
+for (Map.Entry<String, String> entry : treeMap2.entrySet()) {
+	
+	System.out.println(entry.getKey() + "--> " + entry.getValue());
+	
+}
+
 // SET CLASS 
 Set<String> set = new HashSet<String>();
 TreeSet sortedSet = new TreeSet<Integer>();

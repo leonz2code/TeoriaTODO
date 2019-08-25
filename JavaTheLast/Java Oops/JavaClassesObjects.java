@@ -1,5 +1,5 @@
 ****************************************************************************************************************************************************
-Java Classes/Objects
+Java Classes/Objects    instanceof
 ****************************************************************************************************************************************************
 
 Cuando se crea un objeto ocurren 3 cosas:
@@ -697,12 +697,20 @@ hello 5
 
 ----------------------------------------------------------------------------------------------------------------------------------
 
+instanceof 
 
 
+The java instanceof operator is used to test whether the object is an instance of the specified type (class or subclass or interface).
+
+class Simple1{  
+ public static void main(String args[]){  
+ Simple1 s=new Simple1();  
+ System.out.println(s instanceof Simple1);//true  
+ }  
+}  
 
 
-
-
+----------------------------------------------------------------------------------------------------------------------------------
 
 
 
