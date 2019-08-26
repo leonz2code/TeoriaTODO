@@ -61,6 +61,9 @@ A Thread ends due to the following reasons:
  - When the thread throws an Exception or Error that is not being caught in the program.
  - Java program completes or ends.
  - Another thread calls stop() methods.
+ 
+ -- CUANDO TERMINA run(), cuando el hilo lanza throws y no se atrapa, cuando termina el programa, cuando se llama al metodo stop() // Deprecado
+ 
 -------------------------------------------------------------------------------------------------------------------
 Synchronization of Threads
 -------------------------------------------------------------------------------------------------------------------
