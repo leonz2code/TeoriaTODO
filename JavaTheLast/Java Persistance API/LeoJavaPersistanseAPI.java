@@ -156,37 +156,149 @@ El proceso de obtención de los datos es idéntica a la de almacenar los datos.
 
 El mecanismo de la interacción mediante programación por encima de tres fases se denomina asignación objeto-relacional.
 
+******************
 Mapping.xml
+******************
+
 La asignación de archivo.xml es el de instruir a la JPA proveedor mapa las clases de entidad con las tablas de la base de datos.
 
 Tomemos un ejemplo del Empleado entidad que contiene cuatro atributos. El POJO entidad clase de empleados Employee.java es la siguiente:
 
+-----------------------------------------------
 ver Employee.java en el folder de este archivo
-
+-----------------------------------------------
 
 El código anterior es la entidad Employee clase POJO. Contiene cuatro atributos b>eid, ename, salary, and deg. 
 Considerar estos atributos como los campos de tabla en una tabla y eid como clave principal de la tabla. 
 Ahora tenemos que tener en cuenta en el diseño del archivo de asignación para hibernar. 
 Nombre del archivo de mapas mapping.xml es el siguiente:
+****************************************************************************************
+<? xml version="1.0" encoding="UTF-8" ?>
+
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm    
+   http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
+   version="1.0">
+   
+   <description> XML Mapping file</description>
+   
+   <entity class="Employee">        
+      <table name="EMPLOYEETABLE"/>
+      
+      <attributes>
+         <id name="eid">
+            <generated-value strategy="TABLE"/>
+         </id>
+         
+         <basic name="ename">
+            <column name="EMP_NAME" length="100"/>
+         </basic>
+         
+         <basic name="salary">
+         </basic>
+         
+         <basic name="deg">
+         </basic>
+      </attributes>
+      
+   </entity>
+</entity-mappings>
+****************************************************************************************
+La secuencia de comandos anterior se utiliza para la cartografía de la clase de entidad con la tabla de la base de datos. En este archivo
+
+
+<entity-mappings> :		 etiqueta define la definición de esquema para permitir etiquetas de entidad en archivo xml.
+
+<description> :			 etiqueta ofrece una descripción acerca de la aplicación.
+
+<entity> : 				 etiqueta define la clase de entidad que desea convertir en una tabla en una base de datos. Clase de atributo POJO define el nombre de la clase de entidad.
+
+<table> : 				 etiqueta define el nombre de la tabla. Si desea tener nombres idénticos tanto para la clase, así como la tabla y, a continuación, esta etiqueta no es necesario.
+
+<attributes> : 			 etiqueta define los atributos (campos de una tabla).
+
+<id> :					 etiqueta define la clave principal de la tabla. El <genera valor de etiqueta> define cómo asignar el valor de la clave principal como automática, manual o de secuencia.
+
+<basic> : 				 etiqueta se utiliza para definir los atributos de la tabla.
+
+<column-name> :			 etiqueta se usa para definir tabla definidas por el usuario nombres de campo en la tabla.
+
+--------------------------------------------------------------------------------------
+Las anotaciones
+--------------------------------------------------------------------------------------
+
+Por lo general se utilizan archivos xml para configurar los componentes específicos, o asignación de dos diferentes especificaciones de los componentes. En nuestro caso, tenemos que mantener archivos xml 
+por separado en un marco. Eso significa que al escribir un archivo de asignación xml, necesitamos comparar los atributos de clase POJO con las etiquetas de la entidad en el archivo mapping.xml.
+
+Aquí está la solución. En la definición de la clase, podemos escribir la configuración con anotaciones. Las anotaciones se utilizan para las clases, propiedades y métodos. 
+Las anotaciones comienzan con " @" el símbolo. Las anotaciones son declarados antes de una clase, propiedad o método. Todas las anotaciones de JPA se definen en el javax.persistence paquete
+
+Aquí lista de anotaciones utilizadas en nuestros ejemplos se dan a continuación.
+
+
+Anotación					 Descripción
+
+@Entidad                     Declara la clase como una entidad o una tabla.					
+@Tabla                       Declara nombre de la tabla.					
+@Basic                       Especifica no campos de restricción explícita.	
+@Embedded                    Especifica las propiedades de la clase o de una entidad cuyo valor es una instancia de una clase se puede incrustar.
+@Id                          Especifica la propiedad, el uso de la identidad (la clave principal de una tabla de la clase.
+@GeneratedValue              Especifica el modo en que la identidad se puede inicializar atributo como automática, manual o valor tomado de la tabla de secuencias.
+@Transitorios                Especifica la propiedad que no es constante, es decir, el valor nunca se almacena en la base de datos.
+@Columna                     Especifica el atributo de columna para la propiedad persistence.
+@SequenceGenerator           Especifica el valor de la propiedad que se especifica en la anotación @GeneratedValue. Crea una secuencia.
+@TableGenerator              Especifica el generador de valor para la propiedad especificada en la anotación @GeneratedValue. Crea una tabla de generación de valor.
+@AccessType                  Este tipo de anotación se utiliza para establecer el tipo de acceso. Si establece el valor de @métodos Accesstype() y formattype() CAMPO), 
+							 luego se produce acceso Campo sabio.Si establece el valor de @métodos Accesstype() y formattype() PROPIEDAD), a continuación,
+@JoinColumn                  Especifica la entidad asociación o entidad colección. Esto se utiliza en muchos a uno y uno a muchas asociaciones.
+@UniqueConstraint            Especifica los campos y las restricciones unique para la primaria o la secundaria.
+@ColumnResult                Hace referencia al nombre de una columna de la consulta SQL que utiliza cláusula select.
+@ManyToMany                  Define una relación many_to_many entre el unir tablas.
+@ManyToOne                   Define una relación de many_to_one entre el unir tablas.
+@OneToMany                   Define una relación one_to_many entre los unir tablas.
+@OneToOne                    Define una relación one_to_one entre los unir tablas.
+@NamedQueries                Especifica la lista de consultas con nombre.
+@NamedQuery                  Especifica una consulta con nombre está
+
+---------------------------------
+Estándar Java Bean
+---------------------------------
+
+La clase Java encapsula los valores de instancia y sus comportamientos en una sola unidad llamada objeto. Java Bean es un almacenamiento temporal y componentes reutilizables o de un objeto. 
+Se trata de una clase serializable que tiene un constructor predeterminado y métodos get y set para inicializar los atributos de la instancia individual.
+
+--------------------
+Bean Convenios
+--------------------
+
+Frijol contiene su constructor predeterminado o un archivo que contiene serializa la instancia. Por lo tanto, un frijol puede crear una instancia de otro grano.
+==========================================================================================================================================================================================================================
+Las propiedades de un frijol pueden ser segregadas en propiedades booleanas o no booleano.
+==========================================================================================================================================================================================================================
+Propiedad booleanos no contiene getter y setter métodos.
+==========================================================================================================================================================================================================================
+Propiedad booleana contienen setter y es método.
+==========================================================================================================================================================================================================================
+Getter método de cualquier propiedad debe comenzar con pequeñas Letras get (java method convention) y continuó con un nombre de campo que comienza con mayúscula. 
+Por ejemplo, el nombre del campo es salario por tanto el método getter de este campo es getSalary ().
+==========================================================================================================================================================================================================================
+Setter método de cualquier propiedad debe comenzar con pequeñas Letras set (java method convention), continuó con un nombre de campo que comienza con letra mayúscula y el argument value para establecer en campo. 
+or ejemplo, el nombre del campo es salario por tanto el método setter de este campo es setSalary ( double sal ).
+==========================================================================================================================================================================================================================
+Para propiedad booleana, is método para comprobar si es verdadero o falso. Por ejemplo la propiedad booleana vacío, el es método de este campo es isEmpty ().
+
+
+AL ENTENDER EL EJEMPLO SEGUIR EN 
+
+JPA - JPQL
+
+
+VER EJEMPLO JPA EN 
+
+REPOSITORIO TestandPractices/IntroductionToJPA
+\IntroductionToJPA\src\leonz2dbcode\org\intro 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-https://www.tutorialspoint.com/es/jpa/index.htm
+https://www.tutorialspoint.com/jpa/jpa_installation.htm
