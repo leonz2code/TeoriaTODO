@@ -1,0 +1,142 @@
+Inicio Curso
+
+BEST PRACTICES
+
+SELECT actor_id, 
+	   first_name,
+	   lastname
+
+FROM
+	actor;
+
+
+rules sentences with CAPITAL fields with minus
+
+para ver las tablas de una db SHOW 'FULL TABLES FROM dbname'
+
+--------------------------------------------------------------------------------------------------------------------
+other form of Select
+
+SELECT * FROM actor; // this * is for select everithing 
+SELECT * FROM rental; // other example
+
+--------------------------------------------------------------------------------------------------------------------
+Select specific column names
+
+
+				//	SELET  Colum,column ,     FROM table
+SELECT rental_id, 
+	   customer_id, 
+	   rental_date,  
+	   
+FROM rental; 
+
+--------------------------------------------------------------------------------------------------------------------
+
+COUNT  Function
+
+
+SELECT COUNT(*)
+FROM customer
+WHERE email LIKE 
+
+
+SELECT COUNT(*)
+FROM actor
+WHERE first_name = 'PENELOPE'; 
+
+
+SELECT COUNT(PENELOPE)
+FROM actor
+WHERE first_name = 'PENELOPE'; 
+
+SELECT COUNT(*)
+FROM actor
+GROUP BY lastname; 
+( en el result set vemos la columna last_name y COUNT(*) con las coincidencias )
+
+
+aggregate funcion 
+
+that returns the count of matches ( a number )
+
+--------------------------------------------------------------------------------------------------------------------
+
+DISTINCT 
+
+remover duplicados 
+
+SELECT DISTINCT  first_name
+FROM actor;
+
+
+SELECT DISTINCT actor_id, first_name // buscar match entre columnas , raro no funciona con aggretate funcions como suma count etc etc
+FROM actor;
+
+--------------------------------------------------------------------------------------------------------------------
+
+ORDER BY  keyword
+
+SELECT actor_id, first_name, last_name
+FROM actor
+ORDER BY actor_id;
+
+// asending by default
+
+SELECT actor_id, first_name, last_name
+FROM actor
+ORDER BY actor_id ASC;
+
+SELECT actor_id, first_name, last_name
+FROM actor
+ORDER BY actor_id DESC;
+
+ordena SORT por la columna seleccionada
+
+SELECT actor_id, first_name, last_name
+FROM actor
+ORDER BY first_name ASC, lastname DESC;
+// aqui pone los nombres que coinciden en orden asendente y el apellido en desencendente
+
+Ex.-
+
+actor_id	first_name	last_name
+132			ADAM		HOPPER
+71			ADAM		GRANT
+
+// si utilizas un numerico como actor_id no se va a ver la diferencia por que es numberico
+
+SELECT actor_id, first_name, last_name // si consideramos como pociciones actor_id seria la numero 1 first_name 2 y last_name 3
+FROM actor
+ORDER BY 1 DESC;
+
+
+SELECT actor_id, first_name, last_name // si consideramos como pociciones actor_id seria la numero 1 first_name 2 y last_name 3
+FROM actor
+ORDER BY 2, 3 DESC;
+
+--------------------------------------------------------------------------------------------------------------------
+
+
+La sentencia SQL UNION es utilizada para acumular los resultados de dos sentencias SELECT.
+
+Las dos sentencias SELECT tienen que tener el mismo número de columnas, con el mismo tipo de dato y en el mismo orden.
+
+Sintaxis SQL UNION
+
+SELECT columna1, columna2 FROM tabla1 
+UNION 
+SELECT columna1, columna2 FROM tabla2
+
+
+
+
+
+
+
+
+
+
+
+
+
