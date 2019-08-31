@@ -1,0 +1,139 @@
+-------------------------------------------------------------
+1. NullPointerException – 70% of Production Environments
+-------------------------------------------------------------
+Yes. The infamous NullPointerException is in at #1. Sir Charles Antony Richard Hoare, inventor of the Null Reference was not mistaken when he said:
+
+“I call it my billion-dollar mistake. It was the invention of the null reference in 1965… This has led to innumerable errors, vulnerabilities, 
+and system crashes, which have probably caused a billion dollars of pain and damage in the last forty years”.
+
+-------------------------------------------------------------
+2. NumberFormatException – 55% of Production Environments
+-------------------------------------------------------------
+In at #2 is the NumberFormatException which happens when you try to convert a string to a numeric value and the String is not formatted correctly. 
+It extends IllegalArgumentException which also makes an appearance here at #3.
+
+One easy fix to make sure that the input you’re passing to the parse method passes these regular expression:
+
+For integer values: “-?\\d+”
+For float values: “-?\\d+.\\d+”
+
+-------------------------------------------------------------
+3. IllegalArgumentException – 50% of Production Environments
+-------------------------------------------------------------
+Next up at #3, IllegalArgumentException, appearing at the top 10 exceptions in 50% of the production environments in this survey.
+
+An IllegalArgumentException actually saves you from trouble, and thrown when you’re passing arguments from an unexpected type to your methods. 
+For example, some method that expects type X and you’re calling it with type Y as an argument. Once again, 
+an error that’s caused by not checking what you’re sending out as input to other methods.
+
+-------------------------------------------------------------
+4. RuntimeException – 23% of Production Environments
+-------------------------------------------------------------
+All exception objects in the top 10 list (Apart from Exception) are unchecked and extend RuntimeException. 
+However, at #4 we’re facing a “pure” RuntimeException, 
+where Java the language actually doesn’t throw any itself. So what’s going on here?
+
+There are 2 main use cases to explicitly throw a RuntimeException from your code:
+
+Throwing a new “generic” unchecked exception
+Rethrows:
+“Wrapping” a general unchecked exception around another exception that extends RuntimeException
+Making a checked exception unchecked
+One famous story around checked vs. unchecked and the last use case we described here comes from Amazon’s AWS SDK which 
+ONLY throws unchecked exceptions and refuses to use checked exceptions.
+
+-------------------------------------------------------------
+5. IllegalStateException – 22% of Production Environments
+-------------------------------------------------------------
+In at #5, featured at the top 10 exceptions in 22% of over a 1,000 applications covered in this post is the IllegalStateException.
+
+An IllegalStateException is thrown when you’re trying to use a method in an inappropriate time, 
+
+A more realistic Java example would be if you use URLConnection, 
+trying to do something assuming you’re not connected, and get “IllegalStateException: Already Connected”.
+
+-------------------------------------------------------------
+6. NoSuchMethodException – 16% of Production Environments
+-------------------------------------------------------------
+Such Method, Much Confusion. 16% of the production environments in this data crunch had NoSuchMethodException in their top 10.
+
+Since most of us don’t write code while drunk, at least during day time, this doesn’t necessarily mean that we’re that delirious
+ to think we’re seeing something that’s not there. That way the compiler would have caught that way earlier in the process.
+
+This exception is thrown when you’re trying to use a method that doesn’t exist, which happens when you’re using reflection and getting the method name 
+from some variable or when you’re building against a version of a class and using a different one at production (thanks @braxuss).
+
+-------------------------------------------------------------
+7. ClassCastException – 15% of Production Environments
+-------------------------------------------------------------
+A ClassCastException occurs when we’re trying to cast a class to another class of which it is not an instance. 15% of production environments 
+have it in their top 10 exceptions, quite troublesome.
+
+The rule is that you can’t cast an object to a different class which it doesn’t inherit from. Nature did it once, when no one was looking, 
+and that’s how we got the… Java mouse-deer. Yep, that’s a real creature.
+
+-------------------------------------------------------------
+8. Exception – 15% of Production Environments
+-------------------------------------------------------------
+In at #8 is the mother of all exceptions, Exception, DUN DUN DUUUUN (grandmother is Throwable).
+
+Java never throws plain Exceptions, so this is another case like RuntimeException where it must be… you, or 3rd party code, 
+that throws it explicitly because:
+
+1.- You need an exception and just too lazy to specify what it actually is.
+2.- Or… More specifically, you need a checked exception to be thrown for some reason
+
+
+-------------------------------------------------------------
+9. ParseException – 13% of Production Environments
+-------------------------------------------------------------
+Parsing errors strike again! Whenever we’re passing a string to parse into something else, and it’s not formatted the way it’s supposed to, 
+we’re hit by a ParseException. Bummer.
+
+It’s more common than you might have thought with 13% of the production environments tested in this posted featuring this exception in their top 10.
+
+The solution is… yet again, check yo’ self.
+
+-------------------------------------------------------------
+10. InvocationTargetException – 13% of Production Environments
+-------------------------------------------------------------
+Another exception that’s thrown at us from the world of Java Reflection is the InvocationTargetException. This one is actually a wrapper, 
+if something goes wrong in an invoked method, that exception is then wrapped with an InvocationTargetException.
+
+To get the original exception, you’d have to use the getTargetException method.
+
+We see that 13% of production environments tested in this post had it in their list of top 10 exceptions. The second exception type here 
+that’s directly related to Java’s reflection features.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

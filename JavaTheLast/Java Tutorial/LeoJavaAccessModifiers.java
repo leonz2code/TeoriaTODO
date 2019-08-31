@@ -11,6 +11,7 @@ Access Modifiers
 For classes, you can use either public or default:
 
 Modifier				Description	
+
 public					The class is accessible by any other class	
 default					The class is only accessible by classes in the same package. 
 						This is used when you don't specify a modifier. 
@@ -32,6 +33,7 @@ Non-Access Modifiers
 For classes, you can use either final or abstract:
 
 Modifier			Description
+
 final				The class cannot be inherited by other classes (Inheritance )	
 abstract			The class cannot be used to create objects (it must be inherited from another class)
 

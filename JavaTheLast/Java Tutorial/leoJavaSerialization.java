@@ -10,6 +10,7 @@ Example
 ---------------------------------------------------------------------------------------------------------------
 This class implements Serializable interface which means it can be serialized. All the fields of this class can be written to a file after being converted to stream of bytes, 
 except those fields that are declared transient.
+
 public class Student implements java.io.Serializable{
 private int stuRollNum;
 private int stuAge;
