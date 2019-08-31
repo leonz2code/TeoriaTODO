@@ -1,5 +1,5 @@
 Inicio Curso
-
+SOURCE C:/Estudio19/MySQLCourseUdemy/test_db-master/employee.sql
 BEST PRACTICES
 
 SELECT actor_id, 
