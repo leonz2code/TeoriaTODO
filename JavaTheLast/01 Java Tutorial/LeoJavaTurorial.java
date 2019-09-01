@@ -575,7 +575,7 @@ Better thing to do is: compare object with objects (using equals() method) and c
 -----------------------------------------------------------------------------------------------------------------------------------
 Difference between Stack vs Heap in Java
 
-STACK - store local valiables
+STACK - store local variables
 
 HEAP - store objects.
 

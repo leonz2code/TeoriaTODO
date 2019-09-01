@@ -14,7 +14,7 @@ A espera respuesta de B
 A recibe respuesta de B
 A continua con su ejecución
 ++++++++++++++++++++++++++++++++++
-Asíncrono --- Si no es sincronizado, es como los carros en los semáforos de Gdl, todos pasan y les vale madre
+Asíncrono --- Si no es sincronizado, es como los carros en los semáforos de Gdl, todos pasan sin un orden
 ++++++++++++++++++++++++++++++++++
 A envía mensaje a B y continua su ejecución
 A recibe respuesta de B
@@ -37,7 +37,7 @@ Let’s summarize the discussion in points:
    utilize the maximum CPU time so that the idle time can be kept to minimum.
 3. A thread can be in one of the following states:
 
-NEW  				– A thread that has not yet started is in this state.
+NEW  				– A thread that has not yet started is in this state.                                 NERUTEBLOWATI
 RUNNABLE 			– A thread executing in the Java virtual machine is in this state.
 BLOCKED 			– A thread that is blocked waiting for a monitor lock is in this state.
 WAITING 			– A thread that is waiting indefinitely for another thread to perform a particular action is in this state.

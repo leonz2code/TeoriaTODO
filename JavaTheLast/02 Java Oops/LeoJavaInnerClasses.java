@@ -94,7 +94,7 @@ public class MyMainClass {
 
 // Outputs 10
 ------------------------------------------------------------------------
-Anonimous Inner Class
+Anonimous Inner Class  **** JAVA 8 LAMBDA EXPRESSION PRINCIPLE ***
 ------------------------------------------------------------------------
 an Anonimous Inner Class is when Implementation is defined after instanciation enclose by {} so class have no name, thats
 why is named 'Anonimous Inner Class'

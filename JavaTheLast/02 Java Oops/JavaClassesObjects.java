@@ -143,7 +143,7 @@ Java_Class_Methods // EN ARCHIVO APARTE LeoJavaMethods.java
 
 Java_Constructors // EN ARCHIVO APARTE LeoJavaConstructors.java
 
-Java_Modifiers // EN ARCHIVO APARTE LeoJavaModifiers.java
+Java_Modifiers // EN ARCHIVO APARTE LeoJavaAccessModifiers.java
 
 Java_Encapsulation // EN ARVHIVO APARTE LeoJavaEncapsulation.java
 --------------------------------------------------------------------------------------------------------------
@@ -394,9 +394,6 @@ class MyClass {
 
 Java Date and Time // No agregado , ver en internet si se necesita
 
-Java ArrayList // EN UN ARCHIVO APARTE LeoJavaArrayList.java
-
-Java HashMap // EN UN ARCHIVO APARTE LeoHashMap
 ****************************************************************************************
 Java_Wrapper_Classes
 ****************************************************************************************

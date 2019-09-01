@@ -2,6 +2,7 @@
 What is mean by collections in Java?
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 Ans: collections is a framework that is designed to store the objects and manipulate the design to store the objects.
+Collections es un framework que esta disenhado para alocar objetos y manipular el disenho para alocacion de los objetos.
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Collections are used to perform the following operations:
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
