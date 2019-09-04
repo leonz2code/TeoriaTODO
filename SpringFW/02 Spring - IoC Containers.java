@@ -14,11 +14,12 @@ and configuration metadata to produce a fully configured and executable system o
 
 spring_ioc_container.jpg
 
+****************************************************************************************************************************************************************************************
 
 Spring provides the following two distinct types of containers.-
 
 ------------------------------------------------------------------------
-Spring BeanFactory Container	DEPRECADO
+1) Spring BeanFactory Container	>>>>>>>>>>>>DEPRECADO<<<<<<<<<<<<<<<<
 ------------------------------------------------------------------------
 This is the simplest container providing the basic support for DI (Dependency Injection) and is defined by the org.springframework.beans.factory.BeanFactory interface. 
 The BeanFactory and related interfaces, such as BeanFactoryAware, InitializingBean, DisposableBean, 
@@ -27,7 +28,7 @@ are still present in Spring for the purpose of backward compatibility with a lar
 -- VER ARCHIVO SpringBeanFactoryContainer.java  // solocomo referenca la clase esta deprecada
 
 ------------------------------------------------------------------------
-Spring ApplicationContext Container   ---- CURRENENT ----
+2) Spring ApplicationContext Container   ---- CURRENENT ----
 ------------------------------------------------------------------------
 
 -- VER ARCHIVO   SpringApplicationContextContainer.java
@@ -37,9 +38,12 @@ to interested event listeners. This container is defined by the org.springframew
 
 The ApplicationContext container includes all functionality of the BeanFactorycontainer, so it is generally recommended over BeanFactory. ------------DEPRECADO---------------
 BeanFactory can still be used for lightweight applications like mobile devices or applet-based applications where data volume and speed is significant.
+-------------------------------------------------------------------------------
 
+****************************************************************************************************************************************************************************************
 
-
+The ApplicationContext container includes all functionality of the BeanFactorycontainer, so it is generally recommended over BeanFactory. 
+BeanFactory can still be used for lightweight applications like mobile devices or applet-based applications where data volume and speed is significant.
 
 
 

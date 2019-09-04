@@ -88,8 +88,24 @@ Following two important points should be noted about the main program −
 	Once you have an object, you can use this object to call any class method.
 
 Following is the content of the bean configuration file Beans.xml
+----------------------------------------------------------------------------------------------------
+<?xml version = "1.0" encoding = "UTF-8"?>
 
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
+   <bean id = "helloWorld" class = "com.tutorialspoint.HelloWorld">
+      <property name = "message" value = "Hello World!"/>
+   </bean>
+
+</beans>
+
+----------------------------------------------------------------------------------------------------
+Once you are done with creating the source and bean configuration files, let us run the application. If everything is fine with your application, it will print the following message −
+
+Your Message : Hello World!
 
 
 

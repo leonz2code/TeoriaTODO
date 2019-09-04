@@ -76,7 +76,8 @@ Synchronization of Threads
 -------------------------------------------------------------------------------------------------------------------
 Deadlock
 -------------------------------------------------------------------------------------------------------------------
-Whenever there is multiple processes contending for exclusive access to multiple locks, there is the possibility of deadlock. A set of processes or threads is said to be deadlocked when each is waiting for an action that only one of the others can perform.
+Whenever there is multiple processes contending for exclusive access to multiple locks, there is the possibility of deadlock. A set of processes or 
+threads is said to be deadlocked when each is waiting for an action that only one of the others can perform.
 In Order to avoid deadlock, one should ensure that when you acquire multiple locks, you always acquire the locks in the same order in all threads.
 -------------------------------------------------------------------------------------------------------------------
 Guidelines for synchronization
