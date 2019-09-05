@@ -12,18 +12,29 @@ C:\Users\leonz2code\.ssh
 y al dar de alta el host ponerle "fingerprint" y luego "yes"
 
 si no , no te da accesso
-
+***********************************************************************************************************
 Dependency Injection (DI)
+***********************************************************************************************************
+
+es un patrón de diseño orientado a objetos, en el que se suministran objetos a una clase en lugar de ser la propia clase la que cree dichos objetos. 
+
+-----> VER DEPENDENCY INJECTION archivo 
 
 
-
-
+***********************************************************************************************************
 Inversion of Control (IoC) 
+***********************************************************************************************************
 
+Inversion of Control Container
+El módulo Core es el más importante de Spring. Es el que provee el Contenedor IoC (Inversion of control). Este contenedor nos permite aplicar 
+el patron Dependency Injection en nuestras aplicaciones.
 
+En forma muy resumida, el objetivo del contenedor IoC es encargarse de instanciar los objetos de nuestro sistema, denominados beans, y asignarle sus dependencias. 
+Para que el contenedor pueda llevar a cabo esta tarea, debemos, mediante información de configuración, indicarle dónde se encuentran dichos beans.
 
+***********************************************************************************************************
 Aspect Oriented Programming (AOP)
-
+***********************************************************************************************************
 
 
 One of the key components of Spring is the Aspect Oriented Programming (AOP)
