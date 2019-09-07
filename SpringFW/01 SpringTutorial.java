@@ -16,9 +16,17 @@ si no , no te da accesso
 Dependency Injection (DI)
 ***********************************************************************************************************
 
-es un patrón de diseño orientado a objetos, en el que se suministran objetos a una clase en lugar de ser la propia clase la que cree dichos objetos. 
+es cuando se suministran objetos a una clase en lugar de ser la propia clase la que cree dichos objetos. 
 
------> VER DEPENDENCY INJECTION archivo 
+-----> 09 Spring - Dependency Injection.java
+
+En mis palabras
+
+DI  inyeccion de Dependencias
+
+cuando le pasamos a una clase objetos en lugar que la clase los cree hay 2 variantes
+
+1 basado en constructor , le pasamos los objetos al constructor de la clase. 
 
 
 ***********************************************************************************************************
@@ -32,13 +40,23 @@ el patron Dependency Injection en nuestras aplicaciones.
 En forma muy resumida, el objetivo del contenedor IoC es encargarse de instanciar los objetos de nuestro sistema, denominados beans, y asignarle sus dependencias. 
 Para que el contenedor pueda llevar a cabo esta tarea, debemos, mediante información de configuración, indicarle dónde se encuentran dichos beans.
 
+
+En mis palabras
+
+
+IoC   Inversion of Control
+
+lo veo como un container ,   algo que leera un archivo XML por ejemplo "Bean.xml" y de ahi tomara lo que necesite de las clases  , asi lo controla.
+
+
+
 ***********************************************************************************************************
 Aspect Oriented Programming (AOP)
 ***********************************************************************************************************
 
 
 One of the key components of Spring is the Aspect Oriented Programming (AOP)
-
+Que hacer antes, durante y después de la ejecución // segun Martin Bouriel
 
 --------------------------------------------------------------------------------------------------
 SPRING ARCHITECTURE

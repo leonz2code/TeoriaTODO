@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------------------------------------------------------------------------------------
-Exception handling in java
+Exception handling in java  Custom_Exception
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 handle the runtime errors caused by exceptions.
 
@@ -169,7 +169,7 @@ Output:
 
 java.io.IOException: IOException Occurred
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-EJEMPLO  CLASE QUE MANEJA EXCEPTION CREADA POR NOSOTROS 
+EJEMPLO  CLASE QUE MANEJA EXCEPTION CREADA POR NOSOTROS Custom_Exception
 public class JavaException {
 public static void main(String args[]){
 try{
