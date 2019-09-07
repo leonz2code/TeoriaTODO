@@ -28,6 +28,8 @@ cuando le pasamos a una clase objetos en lugar que la clase los cree hay 2 varia
 
 1 basado en constructor , le pasamos los objetos al constructor de la clase. 
 
+2 basado en setter , como en la abstraccion el setter se encargara de instanciar nuestro Bean 
+
 
 ***********************************************************************************************************
 Inversion of Control (IoC) 
