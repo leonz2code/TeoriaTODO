@@ -1,0 +1,62 @@
+PARA PRACTICAR
+
+JAVA CORE
+
+
+EJERCICIOS DE .-
+
+Classes Abstractas.
+
+Interfaces.
+
+innerClases. lambdaExpression
+
+Generics.
+
+Usar una Clase como Atributo de Instancia de otra clase
+
+Recurson;
+
+serializar y deserializar 
+
+
+Singleton UML java singleton private contructor unos ejercios igual
+
+enum classes son public static y final clases se usan por ejemplo para definir los dias de la semana los meses cosas asi
+
+
+Collections , hacer unos 5 ejercicios de cada clase List Set Queue Map .
+
+
+PARA ENTREVISTA.-
+
+hacer ejercicios de Strings sus metodos usarlos bien
+
+falta debugeo
+
+
+
+----------------------------------------------------------------------------------------------------------------
+
+1 practicar todos los dias
+
+2 Unit Testing 
+
+testing libreries like Mockito
+
+JUnit , Selenium  y ya o sino TestNG.
+
+
+3 lambdas and Stream API
+
+4 JVM Internals no se que sea ver que es
+
+5 DevOps
+
+esencial for setting coding practices and bouilding scripts
+
+----------------------------------------------------------------------------------------------------------------
+
+
+
+

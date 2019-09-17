@@ -137,7 +137,187 @@ Your Message : Hello World!
 
 ----------------------------------------------------------------------------------------------------------------
 
+**************************************************************
+Injecting Bean Dependencies
+**************************************************************
 
+When @Beans have dependencies on one another, expressing that the dependency is as simple as having one bean method calling another as follows −
+
+package com.tutorialspoint;
+import org.springframework.context.annotation.*;
+
+@Configuration
+public class AppConfig {
+   @Bean
+   public Foo foo() {
+      return new Foo(bar());
+   }
+   @Bean
+   public Bar bar() {
+      return new Bar();
+   }
+}
+
+----------------------------------------------------------------------------------------------------------------
+
+Here, the foo bean receives a reference to bar via the constructor injection. Now let us look at another working example.
+
+
+Example
+
+Let us have a working Eclipse IDE in place and take the following steps to create a Spring application −
+
+Steps	Description
+
+1		Create a project with a name SpringExample and create a package com.tutorialspoint under the src folder in the created project.
+2		Add required Spring libraries using Add External JARs option as explained in the Spring Hello World Example chapter.
+3		Because you are using Java-based annotations, so you also need to add CGLIB.jar from your Java installation directory and ASM.jar library which can be downloaded from asm.ow2.org.
+4		Create Java classes TextEditorConfig, TextEditor, SpellChecker and MainApp under the com.tutorialspoint package.
+5		The final step is to create the content of all the Java files and Bean Configuration file and run the application as explained below.
+
+Here is the content of TextEditorConfig.java file
+
+package com.tutorialspoint;
+import org.springframework.context.annotation.*;
+
+@Configuration
+public class TextEditorConfig {
+   @Bean 
+   public TextEditor textEditor(){
+      return new TextEditor( spellChecker() );
+   }
+
+   @Bean 
+   public SpellChecker spellChecker(){
+      return new SpellChecker( );
+   }
+}
+----------------------------------------------------------------------------------------------------------------
+
+Here is the content of TextEditor.java file
+
+package com.tutorialspoint;
+
+public class TextEditor {
+   private SpellChecker spellChecker;
+
+   public TextEditor(SpellChecker spellChecker){
+      System.out.println("Inside TextEditor constructor." );
+      this.spellChecker = spellChecker;
+   }
+   public void spellCheck(){
+      spellChecker.checkSpelling();
+   }
+}
+
+----------------------------------------------------------------------------------------------------------------
+Following is the content of another dependent class file SpellChecker.java
+
+package com.tutorialspoint;
+
+public class SpellChecker {
+   public SpellChecker(){
+      System.out.println("Inside SpellChecker constructor." );
+   }
+   public void checkSpelling(){
+      System.out.println("Inside checkSpelling." );
+   }
+}
+----------------------------------------------------------------------------------------------------------------
+Following is the content of the MainApp.java file
+
+package com.tutorialspoint;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.*;
+
+public class MainApp {
+   public static void main(String[] args) {
+      ApplicationContext ctx = 
+         new AnnotationConfigApplicationContext(TextEditorConfig.class);
+
+      TextEditor te = ctx.getBean(TextEditor.class);
+      te.spellCheck();
+   }
+}
+----------------------------------------------------------------------------------------------------------------
+
+Once you are done creating all the source files and adding the required additional libraries, let us run the application. You should note that there is no configuration file required. 
+If everything is fine with your application, it will print the following message −
+
+Inside SpellChecker constructor.
+Inside TextEditor constructor.
+Inside checkSpelling.
+----------------------------------------------------------------------------------------------------------------
+*****************************************************
+The @Import Annotation
+*****************************************************
+
+The @Import annotation allows for loading @Bean definitions from another configuration class. Consider a ConfigA class as follows −
+
+@Configuration
+public class ConfigA {
+   @Bean
+   public A a() {
+      return new A(); 
+   }
+}
+
+You can import above Bean declaration in another Bean Declaration as follows −
+
+@Configuration
+@Import(ConfigA.class)
+public class ConfigB {
+   @Bean
+   public B b() {
+      return new B(); 
+   }
+}
+
+Now, rather than needing to specify both ConfigA.class and ConfigB.class when instantiating the context, only ConfigB needs to be supplied as follows −
+
+public static void main(String[] args) {
+   ApplicationContext ctx = new AnnotationConfigApplicationContext(ConfigB.class);
+   
+   // now both beans A and B will be available...
+   A a = ctx.getBean(A.class);
+   B b = ctx.getBean(B.class);
+}
+----------------------------------------------------------------------------------------------------------------
+**********************************************
+Lifecycle Callbacks
+**********************************************
+
+The @Bean annotation supports specifying arbitrary initialization and destruction callback methods, much like Spring XML's init-method and destroy-method attributes on the bean element −
+
+public class Foo {
+   public void init() {
+      // initialization logic
+   }
+   public void cleanup() {
+      // destruction logic
+   }
+}
+@Configuration
+public class AppConfig {
+   @Bean(initMethod = "init", destroyMethod = "cleanup" )
+   public Foo foo() {
+      return new Foo();
+   }
+}
+----------------------------------------------------------------------------------------------------------------
+
+Specifying Bean Scope
+The default scope is singleton, but you can override this with the @Scope annotation as follows −
+
+@Configuration
+public class AppConfig {
+   @Bean
+   @Scope("prototype")
+   public Foo foo() {
+      return new Foo();
+   }
+}
 
 
 
