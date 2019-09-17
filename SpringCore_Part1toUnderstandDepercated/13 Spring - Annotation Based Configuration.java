@@ -39,10 +39,10 @@ The @Required annotation applies to bean property setter methods.
 2	@Autowired					-----------------------> VER  Spring@AutowiredAnnotation.java <------------------------------------------
 The @Autowired annotation can apply to bean property setter methods, non-setter methods, constructor and properties.
 
-3	@Qualifier
+3	@Qualifier				    -----------------------> VER  Spring@QualifierAnnotation.java <------------------------------------------
 The @Qualifier annotation along with @Autowired can be used to remove the confusion by specifiying which exact bean will be wired.
 
-4	JSR-250 Annotations
+4	JSR-250 Annotations		   -----------------------> DEPRECADO <------------------------------------------
 Spring supports JSR-250 based annotations which include @Resource, @PostConstruct and @PreDestroy annotations.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 

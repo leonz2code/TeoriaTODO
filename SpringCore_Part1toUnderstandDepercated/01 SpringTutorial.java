@@ -50,6 +50,12 @@ IoC   Inversion of Control
 
 lo veo como un container ,   algo que leera un archivo XML por ejemplo "Bean.xml" y de ahi tomara lo que necesite de las clases  , asi lo controla.
 
+https://www.codeproject.com/Articles/592372/Dependency-Injection-DI-vs-Inversion-of-Control-IO?fbclid=IwAR07SsM7wMQ6GJ_61kXdw4vFteUwYBjfXYlt5-abRIPc2GzBYmV2kDZ4RS0
+
+Inversion of Control ( Inversion [como invertir tiempo/diner] o la real Inversion [ Invirtio,  que se invierte]  "Control Invertido"
+
+// LA APLICACION DEJA QUE UN AGENTE EXTERNO TOME EL CONTROL DEL FLUJO DEL PROGRAMA. 
+
 
 
 ***********************************************************************************************************
